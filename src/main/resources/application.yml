@@ -1,0 +1,24 @@
+spring:
+  datasource:
+    url: jdbc:mariadb://localhost:3306/testbatch
+    driver-class-name: org.mariadb.jdbc.Driver
+    username: root
+    password: 1234
+
+    hikari:
+      data-source-properties:
+        rewriteBatchedStatements: true
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+
+    show-sql: true
+
+
+    # bulk insert 설정
+    properties:
+      hibernate:
+        jdbc.batch_size: 100
+        order_inserts: true
+        order_updates: true
